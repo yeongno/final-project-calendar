@@ -1,26 +1,27 @@
-package com.larry.fc.finalproject.core.domain;
+package com.larry.fc.finalproject.core.domain.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Getter
-public class User {
+@Table(name ="users")
+@Entity
+public class User extends BaseEntity{
 
     private String name;
     private String email;
     private String password;
     private LocalDate birthday;
-    private LocalDateTime createdAt;
 
-    public User(String name, String email, String password, LocalDate birthday, LocalDateTime createdAt) {
+    public User(String name, String email, String password, LocalDate birthday) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.birthday = birthday;
-        this.createdAt = createdAt;
     }
 }
